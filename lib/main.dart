@@ -13,13 +13,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<InternetCubit, InternetState>(
-      builder: (context, state) {
-        return const MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: HomePage(),
-        );
-      },
+    return BlocProvider(
+      create: (context) => InternetCubit(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: HomePage(),
+      ),
     );
   }
 }
